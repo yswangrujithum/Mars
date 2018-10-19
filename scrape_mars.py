@@ -47,23 +47,23 @@ def scrape():
     browser.visit(weather_url)
     response = browser.html
     soup3 = BeautifulSoup(response, 'html.parser')
-    contents = soup3.find_all("div", class_="content")
+    weather = soup3.find_all("div", class_="js-tweet-text-container")
     weather_mars = []
-    for content in contents:
-        tweet = content.find("div", class_="js-tweet-text-container").get_text()
-        weather_mars.append(tweet)
+    for content in weather:
+        current_weather = content.find("p", class_="TweetTextSize TweetTextSize--normal js-tweet-text tweet-text").text
+        weather_mars.append(current_weather)
     mars_collection["mars_weather"] = weather_mars[8]
+
     
     # Mars Facts
     fact_url = "https://space-facts.com/mars/"
-    table = pd.read_html(fact_url)
-    table[0]
-    df_facts = table[0]
+    df_facts = pd.read_html(fact_url)[0]
     df_facts.columns = ["Facts", "Values"]
-    df_facts.set_index(["Facts"])
-    fact_html = df_facts.to_html()
-    fact_html = fact_html.replace("\n", "")
-    df_facts.to_html('fact_table.html')
+    clean_table = df_facts.set_index(["Facts"])
+    mars_table = clean_table.to_html()
+    mars_table = mars_table.replace("\n", "")
+    mars_collection["fact_table"] = mars_table
+    
     
     # Mars Hemisphere
     hemisphere_image_urls = []
