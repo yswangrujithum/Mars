@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta char="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Scraping Mars</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    </head>
+    <body>
+<!-- scrape button  --> 
+        <div class="container">
+            <div class="jumbotron text-center">
+                <h1>Mission to Mars</h1>
+                <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+            </div>
+<!-- data -->
+            <!-- news article -->
+            
+            <div class="col-md-12">
+                <h2>Latest Mars News</h2>
+                <h4>{{ mars.news_title }}</h4>
+                <p>{{ mars.news_snip }}</p>
+            </div>
+            
+            <!-- images -->
+            <div class="col-md-12">
+                <div class="col-md-8">
+                    <h2>Featured Mars Image</h2>
+                    <img src="{{ mars.featured_image_url }}" class="img-responsive"
+                        alt="Mars Images">
+                </div> 
+
+            <!-- weather -->
+                <div class="col-md-4">
+                    <div class="panel-body">
+                        <h4>Current Weather on Mars</h4>
+                        <p>{{mars.mars_weather}}</p>
+                        <div class="col-md-12">
+                            <h4>Mars Facts</h4>
+                            <table border="1" class="dataframe">
+                            <thead>
+                            <tr style="text-align: right;">
+                                <th></th>
+                                <th>Values</th>
+                            </tr>
+                            <tr>
+                                <th>Facts</th>
+                                 <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>Equatorial Diameter:</th>
+                                    <td>6,792 km</td>
+                                </tr>
+                                <tr>
+                                    <th>Polar Diameter:</th>
+                                    <td>6,752 km</td>
+                                </tr>
+                                <tr>
+                                    <th>Mass:</th>
+                                    <td>6.42 x 10^23 kg (10.7% Earth)</td>
+                                </tr>
+                                <tr>
+                                    <th>Moons:</th>
+                                    <td>2 (Phobos &amp; Deimos)</td>
+                                </tr>
+                                <tr>
+                                    <th>Orbit Distance:</th>
+                                    <td>227,943,824 km (1.52 AU)</td>
+                                </tr>
+                                <tr>
+                                    <th>Orbit Period:</th>
+                                    <td>687 days (1.9 years)</td>
+                                </tr>
+                                <tr>
+                                    <th>Surface Temperature:</th>
+                                    <td>-153 to 20 °C</td>
+                                </tr>
+                                <tr>
+                                    <th>First Record:</th>
+                                    <td>2nd millennium BC</td>
+                                </tr>
+                                <tr>
+                                    <th>Recorded By:</th>
+                                    <td>Egyptian astronomers</td>
+                                </tr>
+                            </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+
+
+        </div>
+    </body>
+</html>
+
